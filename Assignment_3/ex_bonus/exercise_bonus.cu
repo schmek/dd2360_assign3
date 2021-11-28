@@ -11,6 +11,7 @@
 #define TILE_SIZE 16
 #endif
 
+#define BATCH_SZ = 16;
 #define THRESHOLD 1e-3
 
 /* CUDA layout */
@@ -210,8 +211,8 @@ void print_usage(char *program)
 int main(int argc, char *argv[])
 {
 	int opt;
-	long size = 64*64;
-	bool verify = false;
+	long size = 2048 / 64;
+	bool verify = true;
 
 	while ((opt = getopt(argc, argv, "s:v")) != -1) {
 		switch (opt) {
